@@ -9,6 +9,9 @@ function home() {
                 <a href="/places">
                     <button className="btn-primary">Places Page</button>
                 </a>
+                <div>
+                    <img className="foodbowls" src="/CSS/images/food-bowls.jpg" alt="food-bowl"></img>
+                </div>
             </main>
         </Def>
     );
