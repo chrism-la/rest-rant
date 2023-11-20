@@ -1,5 +1,6 @@
 module.exports = [
     {
+        id: 1,
         name: 'Healthy Bowls',
         city: 'Seattle',
         state: 'WA',
@@ -7,6 +8,7 @@ module.exports = [
         pic: '/images/asianbowl.jpg',
     },
     {
+        id: 2,
         name: 'Pizzario',
         city: 'Phoenix',
         state: 'AZ',
