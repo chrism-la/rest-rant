@@ -5,11 +5,12 @@ function home() {
     return (
         <Def>
             <main>
-                <h1>HOME</h1>
                 <a href="/places">
-                    <button className="btn-primary">Places Page</button>
+                    <button type="button" className="btn btn-primary">
+                        Places Page
+                    </button>
                 </a>
-                <div>
+                <div className="home_img--wrapper">
                     <img className="foodbowls" src="/images/food-bowls.jpg" alt="food-bowl"></img>
                 </div>
             </main>
