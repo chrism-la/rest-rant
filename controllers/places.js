@@ -7,10 +7,12 @@ router.get('/', (req, res) => {
             res.render('places/index', { places });
         })
         .catch((err) => {
-            console.log('err', err);
+            console.log(err);
             res.render('error404');
         });
 });
+
+function name() {}
 
 router.post('/', (req, res) => {
     db.Place.create(req.body)
@@ -39,15 +41,37 @@ router.get('/:id', (req, res) => {
 });
 
 router.put('/:id', (req, res) => {
-    res.send('PUT /places/:id stub');
+    console.log(req.params.id);
+    db.Place.findByIdAndUpdate(req.params.id, req.body, { new: true })
+        .then(() => {
+            res.redirect(`/places/${req.params.id}`);
+        })
+        .catch((err) => {
+            console.log('err', err);
+            res.render('error404');
+        });
 });
 
 router.get('/:id/edit', (req, res) => {
-    res.send('GET edit form stub');
+    db.Place.findById(req.params.id)
+        .then((place) => {
+            res.render('places/edit', { place });
+        })
+        .catch((err) => {
+            console.log('err', err);
+            res.render('error404');
+        });
 });
 
 router.delete('/:id', (req, res) => {
-    res.send('DELETE /places/:id stub');
+    db.Place.findByIdAndDelete(req.params.id)
+        .then(() => {
+            res.redirect('/places');
+        })
+        .catch((err) => {
+            console.log('err', err);
+            res.render('error404');
+        });
 });
 
 module.exports = router;
