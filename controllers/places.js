@@ -49,3 +49,5 @@ router.get('/:id/edit', (req, res) => {
 router.delete('/:id', (req, res) => {
     res.send('DELETE /places/:id stub');
 });
+
+module.exports = router;
