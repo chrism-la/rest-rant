@@ -37,3 +37,15 @@ router.get('/:id', (req, res) => {
             res.render('error404');
         });
 });
+
+router.put('/:id', (req, res) => {
+    res.send('PUT /places/:id stub');
+});
+
+router.get('/:id/edit', (req, res) => {
+    res.send('GET edit form stub');
+});
+
+router.delete('/:id', (req, res) => {
+    res.send('DELETE /places/:id stub');
+});
