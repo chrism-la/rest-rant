@@ -51,12 +51,13 @@ router.get('/:id', (req, res) => {
             res.render('places/show', { place });
         })
         .catch((err) => {
+            console.log(req.params.id);
             console.log('err', err);
             res.render('error404');
         });
 });
 
-router.put('/:id', (req, res) => {
+router.put(`/:id`, (req, res) => {
     db.Place.findByIdAndUpdate(req.params.id, req.body)
         .then(() => {
             res.redirect(`/places/${req.params.id}`);
