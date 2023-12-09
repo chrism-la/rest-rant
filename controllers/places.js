@@ -44,7 +44,7 @@ router.get('/new', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-    db.Place.findOne({ _id: req.params.id })
+    db.Place.findById(req.params.id)
         .populate('comments')
         .then((place) => {
             console.log(place.comments);
@@ -57,9 +57,10 @@ router.get('/:id', (req, res) => {
         });
 });
 
-router.put(`/:id`, (req, res) => {
-    db.Place.findByIdAndUpdate(req.params.id, req.body)
-        .then(() => {
+router.put('/:id', (req, res) => {
+    console.log(req.params.id);
+    db.Place.findByIdAndUpdate(req.params.id, req.body, { new: true })
+        .then((place) => {
             res.redirect(`/places/${req.params.id}`);
         })
         .catch((err) => {
